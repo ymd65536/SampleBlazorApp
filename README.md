@@ -1,33 +1,23 @@
 # SampleBlazorApp
 
-Blazorのアプリケーション
+Blazor App with .NET Core 8.0
 
-## ビルド方法
+## .NET Build
 
 ```bash
 dotnet build
 ```
 
-## 実行方法
+## .NET Run
 
 ```bash
 dotnet run
 ```
 
-## 環境変数をセットする
-
-## Docker
-
-```bash
--e BUILDPLATFORM=darwin/amd64
-```
+## Setup Docker
 
 ```bash
 docker buildx build --platform linux/arm64 -t aspnetapp .
-```
-
-```bash
-docker build . -t aspnetapp
 ```
 
 ```bash
