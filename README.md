@@ -8,6 +8,10 @@ Blazor App with .NET Core 8.0
 dotnet build
 ```
 
+```bash
+dotnet publish --no-restore -o ./out
+```
+
 ## .NET Run
 
 ```bash
@@ -31,5 +35,5 @@ docker buildx build --platform linux/arm64 -t aspnetapp .
 [エラーの理由](https://learn.microsoft.com/ja-jp/dotnet/core/compatibility/sdk/8.0/rid-graph)
 
 ```bash
-docker run -it --rm -p 5000:8080 --name aspnetcore_sample aspnetapp
+docker run -it --rm -p 5000:8080 -e ASPNETCORE_HTTP_PORTS=8080 --name aspnetcore_sample aspnetapp
 ```
