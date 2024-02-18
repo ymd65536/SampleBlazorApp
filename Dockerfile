@@ -10,13 +10,12 @@ RUN dotnet restore -a $TARGETARCH
 
 # copy and publish app and libraries
 COPY app/. .
-RUN dotnet publish -a $TARGETARCH --no-restore -o /app
-
+RUN dotnet publish -a $TARGETARCH --no-restore -o ./out
 
 # final stage/image
-FROM mcr.microsoft.com/dotnet/runtime:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 EXPOSE 8080
 WORKDIR /app
-COPY --from=build /app .
+COPY --from=build /source .
 USER $APP_UID
-ENTRYPOINT ["./app"]
+ENTRYPOINT ["dotnet", "./out/SampleBlazorApp.dll"]
